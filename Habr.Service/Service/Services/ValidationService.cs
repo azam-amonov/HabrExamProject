@@ -15,69 +15,37 @@ public static class ValidationService
             File.WriteAllText(_userDataPath,"[]");
     }
     
-    public static Task<Response<bool>> IsValidName(string name)
+    public static bool IsValidName(string name)
     {
         if (!Validator.IsValidName(name))
-            return Task.FromResult(new Response<bool>
-            {
-                            StatusCode = 400,
-                            Message = "Invalid name",
-                            Data = false
-            });
-        
-        return Task.FromResult(new Response<bool>
-        {
-                        StatusCode = 200,
-                        Message = "Success",
-                        Data = true
-        });
+            return false;
+        return true;
     }
 
-    public static Task<Response<bool>> IsValidEmail(string email)
+    public static bool IsValidEmail(string email)
     {
         string source = File.ReadAllText(_userDataPath);
         List<User> users = JsonConvert.DeserializeObject<List<User>>(source);
-        
         var existEmailAddress = users.Any(u => u.Email.Equals(email));
-        
+
         if (!Validator.IsValidEmail(email) || !existEmailAddress)
-            return Task.FromResult(new Response<bool>
-            {
-                    StatusCode = 400,
-                    Message = "Invalid email address or email is already in use!",
-                    Data = false
-            });
+            throw new FormatException("This email address is not valid or already in use!");
         
-        return Task.FromResult(new Response<bool>
-        {
-                StatusCode = 200,
-                Message = "Success",
-                Data = true
-        });
+        return true;
     }
 
-    public static Task<Response<bool>> IsValidPassword(string password)
+    public static bool IsValidPassword(string password)
     {
         if (!Validator.IsValidPassword(password))
-            return Task.FromResult(new Response<bool>
-            {
-                            StatusCode = 400,
-                            Message = "Invalid password",
-                            Data = false
-            });
+            throw new FormatException("This password is not valid");
         
-        return Task.FromResult(new Response<bool>
-        {
-                        StatusCode = 200,
-                        Message = "Success",
-                        Data = true
-        });
+        return true;
     }
 
     public static bool IsExistsUser(User user)
     {
         var source = File.ReadAllText(_userDataPath);
-        List<User> users = JsonConvert.DeserializeObject<List<User>>(source);
+        List<User>? users = JsonConvert.DeserializeObject<List<User>>(source);
         
         var result = users.Any(x => x.Id == user.Id);
         return result;

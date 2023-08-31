@@ -2,7 +2,7 @@
   {
     "FullName": "testuser",
     "Email": "testuser@gmail.com",
-    "Password": "psswprd@123",
+    "Password": "$2a$10$YzGjsupJyws13R5Nv0m0TujYJv/mY7NzO3R7Wvbe/WhlvRKcu2Ka6",
     "IsActive": false,
     "Role": 0,
     "Rank": 10,
@@ -13,12 +13,45 @@
   {
     "FullName": "testuser",
     "Email": "testuser@gmail.com",
-    "Password": "psswprd@123",
+    "Password": "$2a$10$9WZmAwATozYtghnv0vcMou7QCktlZnKkpFmlyq4QL17oWRS4Hgggu",
     "IsActive": false,
     "Role": 0,
     "Rank": 10,
     "Id": 1,
     "CreatedTime": "2023-08-30T17:23:09.188799Z",
     "UpdatedTime": "2023-08-30T17:23:09.143512+05:00"
+  },
+  {
+    "FullName": "SuperUser",
+    "Email": "Suer233@gmail.com",
+    "Password": "$2a$10$P6HREy0yXlDLmXNeU1CY5.VSQ0dYhXbOeLF1OGVO.3b.rBNtfjvBq",
+    "IsActive": true,
+    "Role": 2,
+    "Rank": 100,
+    "Id": 5,
+    "CreatedTime": "2023-08-31T16:25:31.35108Z",
+    "UpdatedTime": "2023-08-31T16:25:31.268374+05:00"
+  },
+  {
+    "FullName": "Azizbek",
+    "Email": "azizbek@gmail.com",
+    "Password": "$2a$10$kT4ytXAaIqpKyljtzDudGeji4rJPXjVwSxvzwRX2lWN8rtjps5rDe",
+    "IsActive": true,
+    "Role": 1,
+    "Rank": 10,
+    "Id": 9,
+    "CreatedTime": "2023-08-31T16:27:00.721681Z",
+    "UpdatedTime": "2023-08-31T16:27:00.618898+05:00"
+  },
+  {
+    "FullName": "Azizbek",
+    "Email": "azizbek@gmail.com",
+    "Password": "$2a$10$6rI3PMaKLIteF07qM69ALu6rHx7y83PLVCjEBXrAG7ZMhrVNXdVOG",
+    "IsActive": true,
+    "Role": 1,
+    "Rank": 10,
+    "Id": 88,
+    "CreatedTime": "2023-08-31T16:29:34.654848Z",
+    "UpdatedTime": "2023-08-31T16:29:34.638994+05:00"
   }
 ]

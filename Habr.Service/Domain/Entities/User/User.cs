@@ -1,5 +1,6 @@
 using Habr.Service.Domain.Commons;
 using Habr.Service.Domain.Enums;
+using Habr.Service.Service.Helpers;
 
 namespace Habr.Service.Domain.Entities.User;
 
@@ -17,7 +18,7 @@ public class User: Auditable, IUser
     {
         FullName = fullName;
         Email = email;
-        Password = password;
+        Password = PasswordHasher.Encrypt(password);
         IsActive = isActive;
         Role = role;
         Rank = rank;
