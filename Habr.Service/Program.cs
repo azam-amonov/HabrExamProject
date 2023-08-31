@@ -17,9 +17,9 @@ var testUserSeervice = new UserService();
 
 // Console.WriteLine(result.Result);
 
-// var hashed = PasswordHasher.Encrypt("password123");
-// var hashed2 = PasswordHasher.Encrypt("password123");
-// Console.WriteLine(hashed);
-// Console.WriteLine(hashed2);
-// Console.WriteLine(PasswordHasher.Verify(hashed, "password123"));
-// Console.WriteLine(PasswordHasher.Verify(hashed2, "password123"));
+var hashed = PasswordHasher.Encrypt("password123");
+var hashed2 = PasswordHasher.Encrypt("password123");
+Console.WriteLine(hashed);
+Console.WriteLine(hashed2);
+Console.WriteLine(PasswordHasher.Verify(hashed, "password123"));
+Console.WriteLine(PasswordHasher.Verify(hashed2, "password123"));
