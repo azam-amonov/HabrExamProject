@@ -11,10 +11,10 @@ public interface IUserService
     IQueryable<User> Get(Expression<Func<User, bool>> expression);
 
     Task<Response<User>> CreateAsync(User user);
-    Task<Response<User>> GetByIdAsync(int userId);
+    Task<Response<IEnumerable<User>>> GetAllAsync();
+    Task<Response<User?>> GetByIdAsync(int userId);
     Task<Response<User>> UpdateAsync(User user);
     Task<Response<BlogPost>> GetUserPostsAsync(int userId);
     Task<Response<Comment>> GetUserCommentsAsync(int userId);
-    Task<Response<User>> DeleteAsync(User user);
     Task<Response<bool>> DeleteByIdAsync(int userId);
 }

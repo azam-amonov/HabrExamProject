@@ -22,4 +22,10 @@ public class User: Auditable, IUser
         Role = role;
         Rank = rank;
     }
+
+    public override string ToString()
+    {
+        return $"{Id} {FullName} {Email}";
+    }
+    
 }
