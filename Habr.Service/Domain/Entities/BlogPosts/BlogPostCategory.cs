@@ -6,8 +6,8 @@ public class BlogPostCategory : Auditable
 {
     public string Name { get; set; }
 
-    public BlogPostCategory(int id, DateTime updatedTime) 
-                    : base(id, updatedTime)
+    public BlogPostCategory(int id) 
+                    : base(id)
     {
     }
 }

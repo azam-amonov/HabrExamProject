@@ -13,8 +13,8 @@ public class BlogPost: Auditable, IContentItem
     public string? Description { get; set; }
     public BlogPostCategory Category { get; set; }
 
-    public BlogPost(int id, DateTime updatedTime) 
-                    : base(id, updatedTime)
+    public BlogPost(int id) 
+                    : base(id)
     {
     }
 }

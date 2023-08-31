@@ -10,7 +10,18 @@ public class Comment: Auditable, IContentItem
     public int SavedCount { get; set; }
     public string Content { get; set; }
 
-    public Comment(int id, DateTime updatedTime) : base(id, updatedTime)
+    public Comment(int id, int userId, int postId, int like, int savedCount, string content) 
+                    : base(id)
     {
+        UserId = userId;
+        PostId = postId;
+        Like = like;
+        SavedCount = savedCount;
+        Content = content;
+    }
+
+    public override string ToString()
+    {
+        return $"{Id} {UserId}: {PostId} {Content}";
     }
 }

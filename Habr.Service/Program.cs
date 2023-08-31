@@ -1,12 +1,14 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Habr.Service.Domain.Entities.Comments;
 using Habr.Service.Domain.Entities.User;
 using Habr.Service.Domain.Enums;
 using Habr.Service.Service.Helpers;
 using Habr.Service.Service.Services;
 
 Console.WriteLine("Test");
-var testUserSeervice = new UserService();
+var testUserService = new UserService();
+var commentService = new CommentService();
 
 // var result = 
 //                 testUserSeervice.CreateAsync(new User(88, DateTime.Now, "Azizbek", "azizbek@gmail.com", "azizbek@123",true, UserRole.Moderator, 10)); 
@@ -17,9 +19,13 @@ var testUserSeervice = new UserService();
 
 // Console.WriteLine(result.Result);
 
-var hashed = PasswordHasher.Encrypt("password123");
-var hashed2 = PasswordHasher.Encrypt("password123");
-Console.WriteLine(hashed);
-Console.WriteLine(hashed2);
-Console.WriteLine(PasswordHasher.Verify(hashed, "password123"));
-Console.WriteLine(PasswordHasher.Verify(hashed2, "password123"));
+// var hashed = PasswordHasher.Encrypt("password123");
+// var hashed2 = PasswordHasher.Encrypt("password123");
+// Console.WriteLine(hashed);
+// Console.WriteLine(hashed2);
+// Console.WriteLine(PasswordHasher.Verify(hashed, "password123"));
+// Console.WriteLine(PasswordHasher.Verify(hashed2, "password123"));
+
+
+var comment = await commentService.CreateAsync(new Comment(1,1,1,5,44,"Comment"));
+Console.WriteLine(comment);

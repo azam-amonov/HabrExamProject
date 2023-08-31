@@ -6,9 +6,8 @@ public abstract class Auditable
     public DateTime CreatedTime { get; set; } = DateTime.UtcNow.AddHours(5);
     public DateTime? UpdatedTime { get; set; }
 
-    protected Auditable(int id, DateTime updatedTime)
+    protected Auditable(int id)
     {
         Id = id;
-        UpdatedTime = updatedTime;
     }
 }
