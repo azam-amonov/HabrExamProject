@@ -13,7 +13,7 @@ public class BlogPostService : IBlogPostService
     public BlogPostService()
     {
         var source = File.ReadAllTextAsync(_blogPostDataPath);
-        if(string.IsNullOrEmpty(source.ToString()));
+        if(string.IsNullOrEmpty(source.ToString()))
             File.WriteAllTextAsync(_blogPostDataPath, "[]");
     }
     
@@ -25,7 +25,7 @@ public class BlogPostService : IBlogPostService
     public async Task<BlogPost> CreateAsync(BlogPost blogPost)
     {
         var blogPosts = await _blogPostDataPath.ReadJsonFromFileAsync<List<BlogPost>>();
-        
+ 
         blogPosts.Add(blogPost);
         await blogPosts.WriteToFileFromJsonAsync(_blogPostDataPath);
         

@@ -13,8 +13,16 @@ public class BlogPost: Auditable, IContentItem
     public string? Description { get; set; }
     public BlogPostCategory Category { get; set; }
 
-    public BlogPost(int id) 
+    public BlogPost(int id, string content, string title, BlogPostCategory category) 
                     : base(id)
     {
+        Content = content;
+        Title = title;
+        Category = category;
+    }
+
+    public override string ToString()
+    {
+        return $"{Title}";
     }
 }
