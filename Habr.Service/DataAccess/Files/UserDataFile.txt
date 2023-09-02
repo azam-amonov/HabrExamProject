@@ -1,0 +1,13 @@
+[
+  {
+    "FullName": "John",
+    "Email": "john@example.com",
+    "Password": "$2a$10$zK.jB8creoyTktPQgIMjJuhnoHsiW3uSbQhPKHPtZF7jZvR5P0cVe",
+    "IsActive": true,
+    "Role": 2,
+    "Rank": 12,
+    "Id": 33,
+    "CreatedTime": "2023-09-02T16:23:55.849051Z",
+    "UpdatedTime": null
+  }
+]

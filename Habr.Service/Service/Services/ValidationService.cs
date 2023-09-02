@@ -6,7 +6,7 @@ namespace Habr.Service.Service.Services;
 
 public static class ValidationService 
 {
-    private static readonly string UserDataPath = Constant.UserDataFile;
+    private static readonly string UserDataPath = Constant.GenericFilePath<User>(new User());
 
     static ValidationService()
     {

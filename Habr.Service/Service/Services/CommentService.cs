@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using Habr.Service.DataAccses.Constans;
 using Habr.Service.Domain.Entities.Comments;
 using Habr.Service.Service.Extentions;
@@ -8,24 +7,27 @@ namespace Habr.Service.Service.Services;
 
 public class CommentService : ICommentService
 {
-    private readonly string _commentDataPath = Constant.CommentDataFile;
-
+    private readonly string _commentDataPath;
     public CommentService()
     {
-        var source = File.ReadAllTextAsync(_commentDataPath);
-        if (string.IsNullOrEmpty(source.ToString()))
-            File.WriteAllTextAsync(_commentDataPath, "[]");
+       _commentDataPath = Constant.GenericFilePath<Comment>(new Comment());
+       if (!File.Exists(_commentDataPath)) 
+           File.Create(_commentDataPath);
+       
+       InitializeAsync().Wait();
     }
-    
-    public Task<IQueryable<Comment>> GetAsync(Expression<Func<Comment>> expression)
+
+    private async Task InitializeAsync()
     {
-        throw new NotImplementedException();
+        var source = await File.ReadAllTextAsync(_commentDataPath);
+        
+        if (string.IsNullOrEmpty(source))
+            await File.WriteAllTextAsync(_commentDataPath,"[]");
     }
     
     public async Task<Comment> CreateAsync(Comment comment)
     {
         var comments = await _commentDataPath.ReadJsonFromFileAsync<List<Comment>>();
-
         comments.Add(comment);
         await comments.WriteToFileFromJsonAsync(_commentDataPath);
 

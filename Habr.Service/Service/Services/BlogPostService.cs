@@ -8,21 +8,24 @@ namespace Habr.Service.Service.Services;
 
 public class BlogPostService : IBlogPostService
 {
-    private readonly string _blogPostDataPath = Constant.PostDataFile;
-    private int _lastId;
+    private readonly string _blogPostDataPath;
+    private int LastId;
     
     public BlogPostService()
     {
+        _blogPostDataPath = Constant.GenericFilePath<BlogPost>(new BlogPost());
+        if (!File.Exists(_blogPostDataPath))
+            File.Create(_blogPostDataPath);
+        
         InitializeAsync().Wait();
     }
 
     private async Task InitializeAsync()
     {
         var source = await File.ReadAllTextAsync(_blogPostDataPath);
-        if (string.IsNullOrEmpty(source))
-        {
+        
+        if (string.IsNullOrEmpty(source)) 
             await File.WriteAllTextAsync(_blogPostDataPath, "[]");
-        }
     }
     
     public async Task<BlogPost> CreateAsync(BlogPost blogPost)

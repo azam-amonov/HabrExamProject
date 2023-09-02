@@ -12,6 +12,10 @@ public class BlogPost: Auditable, IContentItem
     public bool IsPublic { get; set; }
     public string? Description { get; set; }
 
+    public BlogPost(): base()
+    {
+        
+    }
     public BlogPost(int id, string content, string title) 
                     : base(id)
     {

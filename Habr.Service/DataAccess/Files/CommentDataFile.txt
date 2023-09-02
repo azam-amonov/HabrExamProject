@@ -1,0 +1,32 @@
+[
+  {
+    "UserId": 2,
+    "PostId": 3,
+    "Like": 0,
+    "SavedCount": 0,
+    "Content": "comments",
+    "Id": 1,
+    "CreatedTime": "2023-09-02T16:47:52.050921Z",
+    "UpdatedTime": null
+  },
+  {
+    "UserId": 2,
+    "PostId": 3,
+    "Like": 0,
+    "SavedCount": 0,
+    "Content": "comments",
+    "Id": 1,
+    "CreatedTime": "2023-09-02T16:48:35.283321Z",
+    "UpdatedTime": null
+  },
+  {
+    "UserId": 2,
+    "PostId": 3,
+    "Like": 0,
+    "SavedCount": 0,
+    "Content": "comments",
+    "Id": 1,
+    "CreatedTime": "2023-09-02T16:48:43.579729Z",
+    "UpdatedTime": null
+  }
+]

@@ -1,4 +1,3 @@
-using System.Linq.Expressions;
 using Habr.Service.Domain.Entities.User;
 using Habr.Service.Service.Extentions;
 using Habr.Service.Service.Interfaces;
@@ -8,13 +7,23 @@ namespace Habr.Service.Service.Services;
 
 public class UserService : IUserService
 {
-    private readonly string _userDataPath = Constant.UserDataFile;
-    
+    private readonly string _userDataPath; 
     public UserService()
     {
+        _userDataPath = Constant.GenericFilePath<User>(new User());
+        
+        if (!File.Exists(_userDataPath)) 
+            File.Create(_userDataPath);
+        
+        InitializeAsync().Wait();
+    }
+
+    private async Task InitializeAsync()
+    {
         var source = File.ReadAllTextAsync(_userDataPath);
+        
         if (string.IsNullOrEmpty(source.ToString()))
-            File.WriteAllTextAsync(_userDataPath,"[]");
+            await File.WriteAllTextAsync(_userDataPath,"[]");
     }
     
     public async Task<User> CreateAsync(User user) 

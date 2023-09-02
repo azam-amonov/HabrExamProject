@@ -10,13 +10,15 @@ public class Comment: Auditable, IContentItem
     public int SavedCount { get; set; }
     public string Content { get; set; }
 
-    public Comment(int id, int userId, int postId, int like, int savedCount, string content) 
+    public Comment() : base()
+    {
+        
+    }
+    public Comment(int id, int userId, int postId, string content) 
                     : base(id)
     {
         UserId = userId;
         PostId = postId;
-        Like = like;
-        SavedCount = savedCount;
         Content = content;
     }
 

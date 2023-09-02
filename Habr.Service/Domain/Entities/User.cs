@@ -18,7 +18,7 @@ public class User: Auditable, IUser
         
     }
 
-    public User(int id, string fullName, string email, string password, bool isActive, UserRole role, int rank) 
+    public User(int id, string fullName, string email, string password, bool isActive, UserRole role) 
                     : base(id)
     {
         FullName = fullName;
@@ -26,7 +26,6 @@ public class User: Auditable, IUser
         Password = PasswordHasher.Encrypt(password);
         IsActive = isActive;
         Role = role;
-        Rank = rank;
     }
 
     public override string ToString()
