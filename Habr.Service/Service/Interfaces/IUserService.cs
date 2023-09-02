@@ -1,7 +1,7 @@
 using System.Linq.Expressions;
+using Habr.Service.Domain.Entities;
 using Habr.Service.Domain.Entities.BlogPosts;
 using Habr.Service.Domain.Entities.Comments;
-using Habr.Service.Domain.Entities.User;
 using Habr.Service.Service.Helpers;
 
 namespace Habr.Service.Service.Interfaces;

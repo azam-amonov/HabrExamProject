@@ -16,8 +16,8 @@ public class BlogPost: Auditable, IContentItem
     {
         
     }
-    public BlogPost(int id, string content, string title) 
-                    : base(id)
+    public BlogPost(string content, string title) 
+                    : base()
     {
         Content = content;
         Title = title;

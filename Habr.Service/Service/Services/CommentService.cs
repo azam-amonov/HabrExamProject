@@ -8,9 +8,12 @@ namespace Habr.Service.Service.Services;
 public class CommentService : ICommentService
 {
     private readonly string _commentDataPath;
+    private readonly int _lastId;
     public CommentService()
     {
        _commentDataPath = Constant.GenericFilePath<Comment>(new Comment());
+       _lastId = GetLastId();
+       
        if (!File.Exists(_commentDataPath)) 
            File.Create(_commentDataPath);
        
@@ -28,6 +31,13 @@ public class CommentService : ICommentService
     public async Task<Comment> CreateAsync(Comment comment)
     {
         var comments = await _commentDataPath.ReadJsonFromFileAsync<List<Comment>>();
+
+        comment = new Comment
+        {
+            Id = _lastId,
+            Content = comment.Content
+        };
+        
         comments.Add(comment);
         await comments.WriteToFileFromJsonAsync(_commentDataPath);
 
@@ -95,5 +105,16 @@ public class CommentService : ICommentService
 
         var postComments = comments.Where(c => c.PostId == postId).ToList();
         return postComments;
+    }
+    public async Task<IEnumerable<Comment>> GetAllAsync() =>
+                    await _commentDataPath.ReadJsonFromFileAsync<List<Comment>>();
+
+    private  int GetLastId()
+    {
+        var users =  GetAllAsync().Result.ToList();
+        var lastComment = users.LastOrDefault();
+        if (lastComment is null)
+            return 1;
+        return lastComment.Id + 1;
     }
 }

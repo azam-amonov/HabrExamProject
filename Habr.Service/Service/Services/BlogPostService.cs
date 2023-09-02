@@ -9,11 +9,13 @@ namespace Habr.Service.Service.Services;
 public class BlogPostService : IBlogPostService
 {
     private readonly string _blogPostDataPath;
-    private int LastId;
+    private readonly int _lastId;
     
     public BlogPostService()
     {
         _blogPostDataPath = Constant.GenericFilePath<BlogPost>(new BlogPost());
+        _lastId = GetLastId();
+        
         if (!File.Exists(_blogPostDataPath))
             File.Create(_blogPostDataPath);
         
@@ -31,6 +33,13 @@ public class BlogPostService : IBlogPostService
     public async Task<BlogPost> CreateAsync(BlogPost blogPost)
     {
         var blogPosts = await _blogPostDataPath.ReadJsonFromFileAsync<List<BlogPost>>();
+        blogPost = new BlogPost
+        {
+                Id = _lastId,
+                Title = blogPost.Title,
+                Content = blogPost.Content
+        };
+        
         blogPosts.Add(blogPost);
         await blogPosts.WriteToFileFromJsonAsync(_blogPostDataPath);
         
@@ -96,5 +105,13 @@ public class BlogPostService : IBlogPostService
             throw new ArgumentException("The is no any blog post");
         
         return blogPosts;
+    }
+    private  int GetLastId()
+    {
+        var users =  GetAllAsync().Result.ToList();
+        var lastBlogPost = users.LastOrDefault();
+        if (lastBlogPost is null)
+            return 1;
+        return lastBlogPost.Id + 1;
     }
 }

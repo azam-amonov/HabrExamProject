@@ -1,4 +1,4 @@
-using Habr.Service.Domain.Entities.User;
+using Habr.Service.Domain.Entities;
 using Habr.Service.Service.Extentions;
 using Habr.Service.Service.Interfaces;
 using Constant = Habr.Service.DataAccses.Constans.Constant;
@@ -7,10 +7,13 @@ namespace Habr.Service.Service.Services;
 
 public class UserService : IUserService
 {
-    private readonly string _userDataPath; 
+    private readonly string _userDataPath;
+    private readonly int _lastId;
+    
     public UserService()
     {
         _userDataPath = Constant.GenericFilePath<User>(new User());
+        _lastId = GetLastId();
         
         if (!File.Exists(_userDataPath)) 
             File.Create(_userDataPath);
@@ -32,6 +35,15 @@ public class UserService : IUserService
             throw new ArgumentException("User already exists");
         
         var users = await _userDataPath.ReadJsonFromFileAsync<List<User>>();
+        user = new User
+        { 
+            Id = _lastId,
+            Email = user.Email,
+            FullName = user.FullName,
+            Password = user.Password,
+            Role = user.Role
+        };
+        
         users.Add(user);
         await users.WriteToFileFromJsonAsync(_userDataPath);
         
@@ -82,5 +94,14 @@ public class UserService : IUserService
         users.Remove(userToDelete);
         await users.WriteToFileFromJsonAsync(_userDataPath);
         return userToDelete;
+    }
+
+    private  int GetLastId()
+    {
+        var users =  GetAllAsync().Result.ToList();
+        var lastUser = users.LastOrDefault();
+        if (lastUser is null)
+            return 1;
+        return lastUser.Id + 1;
     }
 }

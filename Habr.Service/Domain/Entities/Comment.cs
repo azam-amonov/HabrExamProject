@@ -14,8 +14,8 @@ public class Comment: Auditable, IContentItem
     {
         
     }
-    public Comment(int id, int userId, int postId, string content) 
-                    : base(id)
+    public Comment( int userId, int postId, string content) 
+                    : base()
     {
         UserId = userId;
         PostId = postId;

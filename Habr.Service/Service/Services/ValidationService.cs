@@ -1,5 +1,5 @@
 using Habr.Service.DataAccses.Constans;
-using Habr.Service.Domain.Entities.User;
+using Habr.Service.Domain.Entities;
 using Habr.Service.Service.Helpers;
 using Newtonsoft.Json;
 namespace Habr.Service.Service.Services;

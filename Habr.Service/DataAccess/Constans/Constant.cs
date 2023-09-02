@@ -1,7 +1,7 @@
 using Habr.Service.Domain.Commons;
+using Habr.Service.Domain.Entities;
 using Habr.Service.Domain.Entities.BlogPosts;
 using Habr.Service.Domain.Entities.Comments;
-using Habr.Service.Domain.Entities.User;
 
 namespace Habr.Service.DataAccses.Constans;
 

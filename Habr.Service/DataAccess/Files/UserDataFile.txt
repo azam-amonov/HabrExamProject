@@ -9,5 +9,27 @@
     "Id": 33,
     "CreatedTime": "2023-09-02T16:23:55.849051Z",
     "UpdatedTime": null
+  },
+  {
+    "FullName": "John",
+    "Email": "john@example.com",
+    "Password": "$2a$10$Mnj5u5Eb.1v3m1VWjgQB..n0YPmu2CuH1MQQtOJuCQqqQQ9qI4z1q",
+    "IsActive": false,
+    "Role": 2,
+    "Rank": 0,
+    "Id": 34,
+    "CreatedTime": "2023-09-02T22:33:11.617848Z",
+    "UpdatedTime": null
+  },
+  {
+    "FullName": "John",
+    "Email": "john@example.com",
+    "Password": "$2a$10$c26te.qUaPmbzfYamVxBwuLHq8VHZapT//u7pK2M51lduk9i83rXq",
+    "IsActive": false,
+    "Role": 2,
+    "Rank": 0,
+    "Id": 35,
+    "CreatedTime": "2023-09-02T22:33:35.994537Z",
+    "UpdatedTime": null
   }
 ]

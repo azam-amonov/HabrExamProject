@@ -2,7 +2,7 @@ using Habr.Service.Domain.Commons;
 using Habr.Service.Domain.Enums;
 using Habr.Service.Service.Helpers;
 
-namespace Habr.Service.Domain.Entities.User;
+namespace Habr.Service.Domain.Entities;
 
 public class User: Auditable, IUser
 {
@@ -18,8 +18,8 @@ public class User: Auditable, IUser
         
     }
 
-    public User(int id, string fullName, string email, string password, bool isActive, UserRole role) 
-                    : base(id)
+    public User(string fullName, string email, string password, bool isActive, UserRole role, int i) 
+                    : base()
     {
         FullName = fullName;
         Email = email;
