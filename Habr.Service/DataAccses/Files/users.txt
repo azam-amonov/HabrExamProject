@@ -1,72 +1,13 @@
 [
   {
-    "UserId": 0,
-    "PostId": 0,
-    "Like": 0,
-    "SavedCount": 0,
-    "Content": null,
-    "Id": 0,
-    "CreatedTime": "2023-08-30T17:19:47.830543Z",
-    "UpdatedTime": "0001-01-01T00:00:00"
-  },
-  {
-    "UserId": 0,
-    "PostId": 0,
-    "Like": 0,
-    "SavedCount": 0,
-    "Content": null,
-    "Id": 1,
-    "CreatedTime": "2023-08-30T17:23:09.188799Z",
-    "UpdatedTime": "2023-08-30T17:23:09.143512+05:00"
-  },
-  {
-    "UserId": 0,
-    "PostId": 0,
-    "Like": 0,
-    "SavedCount": 0,
-    "Content": null,
-    "Id": 5,
-    "CreatedTime": "2023-08-31T16:25:31.35108Z",
-    "UpdatedTime": "2023-08-31T16:25:31.268374+05:00"
-  },
-  {
-    "UserId": 0,
-    "PostId": 0,
-    "Like": 0,
-    "SavedCount": 0,
-    "Content": null,
-    "Id": 9,
-    "CreatedTime": "2023-08-31T16:27:00.721681Z",
-    "UpdatedTime": "2023-08-31T16:27:00.618898+05:00"
-  },
-  {
-    "UserId": 0,
-    "PostId": 0,
-    "Like": 0,
-    "SavedCount": 0,
-    "Content": null,
-    "Id": 88,
-    "CreatedTime": "2023-08-31T16:29:34.654848Z",
-    "UpdatedTime": "2023-08-31T16:29:34.638994+05:00"
-  },
-  {
-    "UserId": 1,
-    "PostId": 1,
-    "Like": 5,
-    "SavedCount": 44,
-    "Content": "Comment",
-    "Id": 1,
-    "CreatedTime": "2023-08-31T19:32:34.348642Z",
-    "UpdatedTime": null
-  },
-  {
-    "UserId": 1,
-    "PostId": 1,
-    "Like": 5,
-    "SavedCount": 44,
-    "Content": "Comment",
-    "Id": 1,
-    "CreatedTime": "2023-08-31T19:36:59.694279Z",
+    "FullName": "test",
+    "Email": "username@example.com",
+    "Password": "$2a$10$F50aguzk1Rz.NM8Naz2XkeOUTBQNTa/D.c.m9mezRvXXuh.GjXHJS",
+    "IsActive": true,
+    "Role": 0,
+    "Rank": 23,
+    "Id": 119,
+    "CreatedTime": "2023-09-02T12:43:50.926267Z",
     "UpdatedTime": null
   }
 ]

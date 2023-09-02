@@ -6,13 +6,13 @@ namespace Habr.Service.Service.Services;
 
 public static class ValidationService 
 {
-    private static readonly string _userDataPath = Constant.UserDataFile;
+    private static readonly string UserDataPath = Constant.UserDataFile;
 
     static ValidationService()
     {
-        string source = File.ReadAllText(_userDataPath);
+        string source = File.ReadAllText(UserDataPath);
         if(string.IsNullOrWhiteSpace(source))
-            File.WriteAllText(_userDataPath,"[]");
+            File.WriteAllText(UserDataPath,"[]");
     }
     
     public static bool IsValidName(string name)
@@ -24,7 +24,7 @@ public static class ValidationService
 
     public static bool IsValidEmail(string email)
     {
-        string source = File.ReadAllText(_userDataPath);
+        string source = File.ReadAllText(UserDataPath);
         List<User> users = JsonConvert.DeserializeObject<List<User>>(source);
         var existEmailAddress = users.Any(u => u.Email.Equals(email));
 
@@ -37,14 +37,14 @@ public static class ValidationService
     public static bool IsValidPassword(string password)
     {
         if (!Validator.IsValidPassword(password))
-            throw new FormatException("This password is not valid");
+            throw new FormatException("This password is not valid! Example : << passwors@123>> ");
         
         return true;
     }
 
     public static bool IsExistsUser(User user)
     {
-        var source = File.ReadAllText(_userDataPath);
+        var source = File.ReadAllText(UserDataPath);
         List<User>? users = JsonConvert.DeserializeObject<List<User>>(source);
         
         var result = users.Any(x => x.Id == user.Id);

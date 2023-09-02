@@ -8,8 +8,6 @@ namespace Habr.Service.Service.Interfaces;
 
 public interface IUserService
 {
-    IQueryable<User> Get(Expression<Func<User, bool>> expression);
-
     Task<User> CreateAsync(User user);
     Task<IEnumerable<User>> GetAllAsync();
     Task<User?> GetByIdAsync(int userId);

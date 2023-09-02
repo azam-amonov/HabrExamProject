@@ -17,11 +17,6 @@ public class UserService : IUserService
             File.WriteAllTextAsync(_userDataPath,"[]");
     }
     
-    public IQueryable<User> Get(Expression<Func<User, bool>> expression)
-    {
-        throw new NotImplementedException();
-    }
-    
     public async Task<User> CreateAsync(User user) 
     {
         if (ValidationService.IsExistsUser(user))

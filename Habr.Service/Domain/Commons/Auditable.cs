@@ -10,4 +10,8 @@ public abstract class Auditable
     {
         Id = id;
     }
+
+    protected Auditable()
+    {
+    }
 }

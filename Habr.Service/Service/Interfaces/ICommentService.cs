@@ -5,8 +5,6 @@ namespace Habr.Service.Service.Interfaces;
 
 public interface ICommentService
 {
-    Task<IQueryable<Comment>> GetAsync (Expression<Func<Comment>> expression);
-    
     Task<Comment> CreateAsync (Comment comment);
     Task<Comment> UpdateAsync (Comment comment);
     Task<Comment> DeleteAsync (int id);

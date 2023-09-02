@@ -13,6 +13,11 @@ public class User: Auditable, IUser
     public UserRole Role { get; set; }
     public int Rank { get; set; }
 
+    public User() : base()
+    {
+        
+    }
+
     public User(int id, string fullName, string email, string password, bool isActive, UserRole role, int rank) 
                     : base(id)
     {

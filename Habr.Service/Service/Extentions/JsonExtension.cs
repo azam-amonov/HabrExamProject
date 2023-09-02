@@ -13,15 +13,11 @@ public static class JsonExtension
 
     public static async Task<T> ReadJsonFromFileAsync<T>(this string filePath)
     {
-        if (File.Exists(filePath))
-        {
-            var json = await File.ReadAllTextAsync(filePath);
-            return json.FromJson<T>();
-        }
-        else
-        {
+        if (!File.Exists(filePath))
             throw new FileNotFoundException($"File not found: {filePath}");
-        }
+        var json = await File.ReadAllTextAsync(filePath);
+        return json.FromJson<T>();
+  
     }
 
     public static async Task WriteToFileFromJsonAsync<T>(this T source, string filePath)
